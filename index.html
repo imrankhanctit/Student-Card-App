@@ -290,36 +290,43 @@ button:hover
 function generateCard()
 {
     document.getElementById("cardSchoolName").innerHTML =
-    document.getElementById("school").value;
-
-    document.getElementById("cardSchoolLogo").src =
-    document.getElementById("schoolLogo").value;
+    document.getElementById("school").value || "School Name";
 
     document.getElementById("cardName").innerHTML =
-    document.getElementById("name").value;
+    document.getElementById("name").value || "Student Name";
 
     document.getElementById("cardFather").innerHTML =
-    "Father Name: " + document.getElementById("father").value;
+    "Father Name: " + (document.getElementById("father").value || "N/A");
 
     document.getElementById("cardAdmission").innerHTML =
-    "Admission No: " + document.getElementById("admission").value;
+    "Admission No: " + (document.getElementById("admission").value || "N/A");
 
     document.getElementById("cardClass").innerHTML =
-    "Class: " + document.getElementById("class").value;
+    "Class: " + (document.getElementById("class").value || "N/A");
 
     document.getElementById("cardSection").innerHTML =
-    "Section: " + document.getElementById("section").value;
+    "Section: " + (document.getElementById("section").value || "N/A");
 
     document.getElementById("cardAddress").innerHTML =
-    "Address: " + document.getElementById("address").value;
+    "Address: " + (document.getElementById("address").value || "N/A");
 
     document.getElementById("cardMobile").innerHTML =
-    "Mobile: " + document.getElementById("mobile").value;
+    "Mobile: " + (document.getElementById("mobile").value || "N/A");
 
-    document.getElementById("cardImage").src =
-    document.getElementById("image").value;
+    // SAFE IMAGE HANDLING
+    let studentImg = document.getElementById("image").value;
+    let logoImg = document.getElementById("schoolLogo").value;
+
+    if(studentImg !== "")
+    {
+        document.getElementById("cardImage").src = studentImg;
+    }
+
+    if(logoImg !== "")
+    {
+        document.getElementById("cardSchoolLogo").src = logoImg;
+    }
 }
-
 </script>
 
 </body>
