@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Card Generator</title>
+
+<style>
+
+body
+{
+    font-family: Arial;
+
+    margin: 0;
+
+    padding: 20px;
+
+    background: linear-gradient(to right, #141e30, #243b55);
+}
+
+.container
+{
+    display: flex;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+}
+
+.form-box
+{
+    width: 350px;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    box-shadow: 0px 0px 15px black;
+}
+
+.form-box h2
+{
+    text-align: center;
+
+    color: #243b55;
+}
+
+input
+{
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 12px;
+
+    font-size: 16px;
+
+    border-radius: 10px;
+
+    border: 1px solid gray;
+
+    box-sizing: border-box;
+}
+
+button
+{
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 18px;
+
+    font-size: 18px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: linear-gradient(to right, teal, #00c9a7);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+button:hover
+{
+    opacity: 0.9;
+}
+
+.card
+{
+    width: 380px;
+
+    background: white;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    box-shadow: 0px 0px 20px black;
+}
+
+.top
+{
+    background: linear-gradient(to right, #11998e, #38ef7d);
+
+    padding: 20px;
+
+    text-align: center;
+
+    color: white;
+}
+
+.school-logo
+{
+    width: 80px;
+
+    height: 80px;
+
+    border-radius: 50%;
+
+    border: 3px solid white;
+
+    object-fit: cover;
+
+    background: white;
+}
+
+.school-name
+{
+    margin-top: 10px;
+
+    font-size: 22px;
+
+    font-weight: bold;
+}
+
+.student-image
+{
+    width: 130px;
+
+    height: 130px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 5px solid teal;
+
+    display: block;
+
+    margin: 20px auto;
+}
+
+.details
+{
+    padding: 20px;
+}
+
+.details p
+{
+    font-size: 17px;
+
+    margin: 10px 0;
+
+    padding: 8px;
+
+    background: #f1f1f1;
+
+    border-radius: 8px;
+}
+
+.student-name
+{
+    text-align: center;
+
+    color: teal;
+
+    margin-bottom: 15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Form Section -->
+
+    <div class="form-box">
+
+        <h2>🎓 Enter Student Details</h2>
+
+        <input type="text" id="school" placeholder="School Name">
+
+        <input type="text" id="schoolLogo" placeholder="School Logo URL">
+
+        <input type="text" id="name" placeholder="Student Name">
+
+        <input type="text" id="father" placeholder="Father Name">
+
+        <input type="text" id="admission" placeholder="Admission No">
+
+        <input type="text" id="class" placeholder="Class">
+
+        <input type="text" id="section" placeholder="Section">
+
+        <input type="text" id="address" placeholder="Address">
+
+        <input type="text" id="mobile" placeholder="Mobile Number">
+
+        <input type="text" id="image" placeholder="Student Image URL">
+
+        <button onclick="generateCard()">
+            Generate Student Card
+        </button>
+
+    </div>
+
+    <!-- Card Section -->
+
+    <div class="card">
+
+        <div class="top">
+
+            <img id="cardSchoolLogo"
+            class="school-logo"
+            src="https://via.placeholder.com/80">
+
+            <div id="cardSchoolName" class="school-name">
+                School Name
+            </div>
+
+        </div>
+
+        <img id="cardImage"
+        class="student-image"
+        src="https://via.placeholder.com/130">
+
+        <div class="details">
+
+            <h2 id="cardName" class="student-name">
+                Student Name
+            </h2>
+
+            <p id="cardFather">
+                Father Name:
+            </p>
+
+            <p id="cardAdmission">
+                Admission No:
+            </p>
+
+            <p id="cardClass">
+                Class:
+            </p>
+
+            <p id="cardSection">
+                Section:
+            </p>
+
+            <p id="cardAddress">
+                Address:
+            </p>
+
+            <p id="cardMobile">
+                Mobile:
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function generateCard()
+{
+    document.getElementById("cardSchoolName").innerHTML =
+    document.getElementById("school").value;
+
+    document.getElementById("cardSchoolLogo").src =
+    document.getElementById("schoolLogo").value;
+
+    document.getElementById("cardName").innerHTML =
+    document.getElementById("name").value;
+
+    document.getElementById("cardFather").innerHTML =
+    "Father Name: " + document.getElementById("father").value;
+
+    document.getElementById("cardAdmission").innerHTML =
+    "Admission No: " + document.getElementById("admission").value;
+
+    document.getElementById("cardClass").innerHTML =
+    "Class: " + document.getElementById("class").value;
+
+    document.getElementById("cardSection").innerHTML =
+    "Section: " + document.getElementById("section").value;
+
+    document.getElementById("cardAddress").innerHTML =
+    "Address: " + document.getElementById("address").value;
+
+    document.getElementById("cardMobile").innerHTML =
+    "Mobile: " + document.getElementById("mobile").value;
+
+    document.getElementById("cardImage").src =
+    document.getElementById("image").value;
+}
+
+</script>
+
+</body>
+
+</html>
